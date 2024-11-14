@@ -17,9 +17,9 @@ Y_train = data_train[0]
 def init_params():
     # Here the sparting parameters are random because we are building a model from scratch. 
     # By savind the weights and biases, we can iput those as starting params to get a 90% accuracy model from jump.
-    W1 = np.random.randn(10, 784) * np.sqrt(1 / 784)
-    b1 = np.random.randn(10, 1)
-    W2 = np.random.randn(10, 10) * np.sqrt(1 / 10)      # Multiplication by square root of 1 / array_size is to, again, normalize data for better perfomance in our models.
+    W1 = np.random.randn(32, 784) * np.sqrt(1 / 784)
+    b1 = np.random.randn(32, 1)
+    W2 = np.random.randn(10, 32) * np.sqrt(1 / 10)      # Multiplication by square root of 1 / array_size is to, again, normalize data for better perfomance in our models.
     b2 = np.random.randn(10, 1)
     return W1, b1, W2, b2
 
@@ -93,7 +93,7 @@ def gradient_descent(X, Y, iterations, alpha):
     return W1, b1, W2, b2
 
 
-iteration = 2000
+iteration = 50
 start = time.time()
 W1, b1, W2, b2 = gradient_descent(X_train, Y_train, iteration, 0.1)
 finish = time.time()
